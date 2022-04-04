@@ -33,6 +33,24 @@ public class TabellHaug<T extends Comparable<T>> {
 
 	private void reparerOpp() {
 		//Fyll ut
+//		T hjelp;
+//		boolean ferdig = false;
+//		int forelder = (antall-1)/2; 
+//		int minbarn;
+//		int vbarn = forelder * 2 + 1;
+//		int hbarn = vbarn + 1;
+		
+		
+		int aktuell = this.antall;
+		int forelder = (aktuell-1)/2;
+		while(data[aktuell] > data[forelder]) {
+			T temp;
+			temp = data[aktuell];
+			data[aktuell]=data[forelder];
+			data[forelder]=temp;
+	
+			aktuell=forelder;
+		}
 	}
 
 	public T fjernMinste() {

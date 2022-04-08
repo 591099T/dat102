@@ -21,6 +21,7 @@ public class KlientHaug {
 			Integer h =  h1.fjernMinste();
 			System.out.print(h + "  ");
 		}
+		
 		System.out.println();
 	}
 }

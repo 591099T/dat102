@@ -32,24 +32,16 @@ public class TabellHaug<T extends Comparable<T>> {
 	}
 
 	private void reparerOpp() {
-		//Fyll ut
-//		T hjelp;
-//		boolean ferdig = false;
-//		int forelder = (antall-1)/2; 
-//		int minbarn;
-//		int vbarn = forelder * 2 + 1;
-//		int hbarn = vbarn + 1;
-		
-		
-		int aktuell = this.antall;
-		int forelder = (aktuell-1)/2;
-		while(data[aktuell] > data[forelder]) {
-			T temp;
-			temp = data[aktuell];
-			data[aktuell]=data[forelder];
-			data[forelder]=temp;
-	
-			aktuell=forelder;
+
+		T hjelp;
+		int aktuell = this.antall - 1;
+		int forelder = (aktuell -1) / 2;
+		while ((data[aktuell]).compareTo(data[forelder]) < 0) {
+			hjelp = data[aktuell];
+			data[aktuell] = data[forelder];
+			data[forelder] = hjelp;
+			aktuell = forelder;
+			forelder = (aktuell -1) / 2;
 		}
 	}
 
@@ -74,7 +66,7 @@ public class TabellHaug<T extends Comparable<T>> {
 
 	private void reparerNed() {
 		T hjelp;
-		
+
 		boolean ferdig = false;
 		int forelder = 0; // Start i roten og sml med neste nivå
 		int minbarn;
@@ -87,7 +79,6 @@ public class TabellHaug<T extends Comparable<T>> {
 				minbarn = hbarn;
 			// Har funnet det "minste" av barna. Sml med forelder
 
-			
 			if ((data[forelder]).compareTo(data[minbarn]) <= 0)
 				ferdig = true;
 			else { // Bytt om og gå videre nedover hvis forelder er for stor
@@ -111,4 +102,6 @@ public class TabellHaug<T extends Comparable<T>> {
 			System.out.print(data[i] + " ");
 		System.out.println();
 	}
+	
+	
 }
